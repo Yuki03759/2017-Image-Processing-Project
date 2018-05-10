@@ -1,3 +1,10 @@
+/********************************************************************	*/
+/* PhotoLab.c: assignment 4 for EECS 22 in Fall 2017             	    */
+/*                                                            	     	*/
+/* Author Yuki Hayashi         			                   			  	*/
+/* 11/21/2017				                            			 	*/
+/********************************************************************	*/
+
 #ifndef CONSTANTS_H_INCLUDED_
 #define CONSTANTS_H_INCLUDED_
 

@@ -4,6 +4,9 @@
 # Author: Tim Schmidt
 # Date: 11/09/2017
 #
+# Author: Yuki Hayashi
+# Date: 12/05/2017
+#
 # Makefile: Makefile for HW 5
 #
 #######################################################################

@@ -1,3 +1,10 @@
+/********************************************************************	*/
+/* PhotoLab.c: assignment 3 for EECS 22 in Fall 2017             	    */
+/*                                                            	     	*/
+/* Author Yuki Hayashi         			                   			  	*/
+/* 11/07/2017				                            			 	*/
+/********************************************************************	*/
+
 #include "Advanced.h"
 
 void Noise(int n, unsigned char R[WIDTH][HEIGHT], unsigned char G[WIDTH][HEIGHT], unsigned char B[WIDTH][HEIGHT])
