@@ -1,0 +1,72 @@
+Image.c
+	GetPixelR, G, B, SetPixelR, G, B, CreateImage, DeleteImage, ImageWidth, ImageHeight
+
+DIPs.c
+	BlackNwhite, Negative, Colorfilter, Edge, Shuffle, Vertical Flip, Vertical Mirror, AddBorder
+	chagned:
+		R, G, B[WIDTH][HEIGHT]  to SetPixelR, G, B and GetPixelR, G, B
+		HEIGHT					to ImageHeight(image)
+		WIDTH					to ImageWidth(image)
+Advanced.c
+	AddNoise, Sharpen, Posterize, Motion Blur
+	Changed:
+		R, G, B[WIDTH][HEIGHT]  to SetPixelR, G, B and GetPixelR, G, B
+		HEIGHT					to ImageHeight(image)
+		WIDTH					to ImageWidth(image)
+	Crop, Resize, Brightness&Constrast, Watermark
+	Crop
+		1 Create new_W, new_H depends on the input (return image if x is bigger than original)
+		2 CreateImage in the range of new_W, new_H
+		3 SetPixelR, G, B
+		
+	Resize
+		1 Create temp_image based on percentage
+		2 if percentage = 100, SetPixel as original
+		3 if percentage > 100
+			x1 = x*(percentage / 100.00);
+			y1 = y*(percentage / 100.00);
+			x2 = (x+1)*(percentage / 100.00);
+			y2 = (y+1)*(percentage / 100.00);
+			loop and set value if ImageHeight(temp_image>y2), ImageWidth(temp_image)>x2
+		4 if percentage < 100
+			x1 = x/(percentage / 100.00);
+			y1 = y/(percentage / 100.00);
+			x2 = (x+1)/(percentage / 100.00);
+			y2 = (y+1)/(percentage / 100.00);
+			loop and calculate sumR, G, B and divide except x>=ImageWidth(image), y2>=ImageHeight(image)
+			Set average if divide !=0
+			Set Pixel R, G, B in aveR, G, B
+			set divide, sumR, G, B, aveR, G, B = 0
+	Brightness&Constrast
+		1 calculate factor
+			(double)(259*(contrast+255))/(double)(255* (259 -contrast))
+		2 calculate new value
+			(int)(factor*(pixel_value -128)+128)
+		3 set new value
+			if 255>new_value 255, 0<new_value 0.
+	Watermark
+		1 Load watermark_template
+		2 Loop if watermark_template is black
+			r, g, b multiple *1.45
+			255 if r, g, b>255, 0 if r, g, b<0
+		3 the watermark_template is small so that use module not to go over the range of watermark_template
+Test.c
+	AutoTest				- provided
+
+FileIO.c
+	LoadImage, SaveImage	- provided 
+
+Makefile
+
+Image.h
+	Headerfile of Image.c
+FileIO.h
+	Headerfile of FileIO.c	
+DIPs.h
+	Headerfile of DIPs.c
+Test.h
+	Headerfile of Test.c 
+Constants.h
+	Constants 				- provided
+Advanced.h
+	Headerfile of Advanced.c

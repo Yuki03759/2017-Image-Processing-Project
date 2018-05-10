@@ -1,0 +1,71 @@
+ImageList.c
+
+	ILIST *CreateImageList(void);
+		Create ImageList
+
+	void DeleteImageList(ILIST *list);
+		Delete ImaeList
+
+	void DeleteImageEntry(IENTRY *entry);
+		Delete Image Entry
+
+	void AppendRGBImage(ILIST *list, IMAGE *RGBimage);
+		Append RGB Image
+
+	void AppendYUVImage(ILIST *list, YUVIMAGE *YUVimage);
+		Append YUV Image
+
+	void CropImageList(ILIST *list, unsigned int start, unsigned int end);
+		Crop
+
+	void FastImageList(ILIST *list, unsigned int factor);
+		Fast
+	
+	void ReverseImageList(ILIST *list);
+		Reverse
+
+
+Movie.c
+
+	MOVIE *CreateMovie(void)
+		CreateMovie
+	
+	void DeleteMovie(MOVIE *movie)
+		DeleteImae
+	
+	void YUV2RGBMovie(MOVIE *movie)
+		Change YUV to RGB
+	
+	void RGB2YUVMovie(MOVIE *movie)
+		Change RGB to YUV
+
+	unsigned char clip(int x)
+		return 255 if x>255, 0 if x<0
+	
+
+Makefile
+
+	makefile
+	
+MovieLab.c
+	Get the imput by using Command Line Arguments
+
+DIPs.c
+	Aging
+	HFlip
+	Edge
+	Watermark
+	Spotlight
+		change black depending on radius
+	Zoom
+		
+	
+As provided:
+	ImageList.h
+	Movie.h
+	Image.c
+	Image.h
+	FileIO.c
+	FileIO.h
+	Constant.h
+	DIPs.h

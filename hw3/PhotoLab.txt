@@ -1,0 +1,59 @@
+PhotoLab.c
+	It includes main, PrintMenu, and AutoTest
+	In the main, it operates based on the option(the user's input) by using switch statement
+	
+	PrintMenu()
+		shows the menu
+	Void AutoTest()
+		Test all functions
+		
+FileIO.c
+	The function definition of LoadImage and SaveImage
+	
+FileIO.h
+	header file
+	The function declaration of LoadImage and SaveImage
+	
+Constants.h
+	header file
+	Constants value
+
+DIPs.c
+	Same from the original of BlackNWhite, Negative, ColorFilter, Edge, Shuffle, VFlip, VMirror, AddBorder
+	
+DIPs.h
+	header file
+	Function declaration of BlackNWhite, Negative, ColorFilter, Edge, Shuffle, VFlip, VMirror, AddBorder
+
+Advanced.c
+	Noise()
+		It adds white noise to an image
+		calculate the percentage of noise by p=WIDTH*HEIGHT*n/100;
+		put white randamly by rand()%
+	
+	Sharpen()
+		1. create templare file for R, G, B
+		2. set a, b, c as 
+		-1 -1 -1
+		-1  9 -1
+		-1 -1 -1
+		3. change to 255 if a, b, c are over 255 and change to 0 if a, b, c are negative
+		4. give the value back
+	
+	Posterize()
+		1. do right shift and left shift for R, G, B by rbits, gbits, bbits each
+		2. left shift until the (rbits-1, gbits-1, bbits-1)th number
+		
+	Motion Blur()
+		R G B = half original value + averaged from bluramount to the right
+		1. half orginal value = 1/2*R, 1/2*G, 1/2*B
+		2. by using for loop, R[x+i] til bluramount
+		3. divided by bluramount
+		4. add these 1 and 3
+		
+Advanced.h
+	header file	
+	Function declaration of Noise, Sharpen, Posterize, MotionBlur
+
+Makefile
+

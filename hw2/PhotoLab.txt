@@ -1,0 +1,105 @@
+This program allows users to do image manipulation.
+In the main function, I use PrintMenu() function to show the menu and ask users to their choice.
+The switch statement leads to each statement
+1. Load
+2. Save
+3. Black and White
+4. Negative
+5. Colorfilter
+   ask the user for target_r, _g, _b, threshold, replace_r, _g, _b
+6. Edge
+7. Shuffle
+8. VFlip
+9. VMirror
+10. AddBorder
+    ask users for borther_width and border color
+    In switch statement, it changes r, g, b for based on the input
+11. AutoTest
+12. Exit
+    set the exit = 0, which closes the while statement because the loop is in While(exit == 1)
+
+PrintMenu()
+     show the menu from 1 to 12
+
+BlakcNWhite()
+     set ave = (R+G+B)/3 and R, G, B[x][y] = ave in loop
+     
+Negative()
+     255- R, G, B[x][y] in loop
+     
+ColorFilter()
+     Change R, G, B[x][y] = replace_r, _g, _b in loop
+     if target_r, _g, _b + threshold < R, G, B[x][y] < target_r, _g, _b+ threshold
+
+Edge()
+    Create the copy of R, G, B as R_temp, G_temp, B_temp, and int a, b, c
+    X  X  X  X  X
+    X -1 -1 -1  X
+    X -1  8 -1  X
+    X -1 -1 -1  X
+    X  X  X  X  X
+    Change the temp as 
+           a = 8R_temp[x][y]-R_temp[x-1][y-1]-R_temp[x][y-1]-R_temp[x+1][y-1]-R_temp[x-1][y]-R_temp[x+1][y]-R_temp[x-1][y+1]-R_temp[x][y+1]-R_temp[x+1][y+1]
+           b = 8G_temp[x][y]-G_temp[x-1][y-1]-G_temp[x][y-1]-G_temp[x+1][y-1]-G_temp[x-1][y]-G_temp[x+1][y]-G_temp[x-1][y+1]-G_temp[x][y+1]-G_temp[x+1][y+1]
+           c = 8B_temp[x][y]-B_temp[x-1][y-1]-B_temp[x][y-1]-B_temp[x+1][y-1]-B_temp[x-1][y]-B_temp[x+1][y]-B_temp[x-1][y+1]-B_temp[x][y+1]-B_temp[x+1][y+1]
+           
+           and change if a, b, c > 255 a,b,c = 255
+                      if a, b, c < 0  a,b,c = 0
+                      
+           then, give the value back from a,b,cto R, G, B
+Shuffle()
+     Create R, G, B _temp
+     Set the random number in s[i] by using rand()%16 
+     if there is the same value, it creates the different value
+     
+     from_row, from_column is [0][1][2]...[15]
+     to_row, to_column     is random order
+     set these from_now, from columns to to_row, to_column of R, G, B _temp in loop
+     then, give the value back from R, G, B _temp to R, G, B
+
+VFlip()
+     Creaet R, G, B _temp
+     Set R, G, B _temp[x][HEIGHT-1-y] = R, G, B[x][y], which enables the program to flip the height
+     then, give the value bakc from R, G, B _temp to R, G, B
+
+VMirror()
+     Creaet R, G, B _temp
+     Set R, G, B _temp[x][HEIGHT-1-y] = R, G, B[x][y], which enables the program to flip the height
+     start form y=200 in loop, which flips from the center 
+     then, give the value bakc from R, G, B _temp to R, G, B
+
+AddBorder()
+     Calculate border_height =(9*border_width}/16
+     Ask the user for the color to change
+	set the color r, g, b depending on the input
+     
+TopBorder
+     for (int y =0; y < border_width/2; y++)
+         for(int x=0; x<WIDTH; x++)
+                 R[x][y] = r
+                 G[x][y] = g
+                 B[x][y] = b  
+BottomBorder
+     for (int y =0; y < HEIGHT-border_width/2; y++)
+         for(int x=0; x<WIDTH; x++)
+                 R[x][y] = r
+                 G[x][y] = g
+                 B[x][y] = b
+                 
+LeftBorder
+     for (int y =0; y < HEIGHT; y++)
+         for(int x=0; x< border_height/2; x++)
+                 R[x][y] = r
+                 G[x][y] = g
+                 B[x][y] = b
+RightBorder
+     for (int y =0; y < HEIGHT/2; y++)
+         for(int x=0; x<WIDTH-border_height/2; x++)
+                 R[x][y] = r
+                 G[x][y] = g
+                 B[x][y] = b
+   
+AutoTest()
+     Test all functions     
+     
+

@@ -1,0 +1,88 @@
+Script started on Sun 03 Dec 2017 06:23:48 PM PST
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ exitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Gfast 3 -reverse[K a[K[A[89G[82Gcrop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[33Gh[K[21Gmake[K./MovieLab -h[K[K[K[K[K[K[K[K[K[K[K[Kmake
+gcc -ansi -Wall -c MovieLab.c -o MovieLab.o -lm
+gcc -ansi -Wall -c DIPs.c -o DIPs.o
+gcc -ansi -Wall -c Image.c -o Image.o
+gcc -ansi -Wall -c ImageList.c -o ImageList.o
+gcc -ansi -Wall -c Movie.c -o Movie.o
+gcc -ansi -Wall -c FileIO.c -o FileIO.o
+ar rc libfilter.a DIPs.o Image.o ImageList.o Movie.o FileIO.o
+ranlib libfilter.a
+gcc -ansi -Wall MovieLab.o -lfilter -L. -o MovieLab -lm 
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ makeexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Gfast 3 -reverse[K a[K[A[89G[82Gcrop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[33Gh[Ki mouse.yuv -o out.yuv -f 50 -s 480x270 -crop 10-40[33Gh[K
+
+Usage: MovieLab -i <file> -o <file> -f <framenum> -s <WIDTHxHEIGHT> [options]
+Options:
+-aging                Activate the aging filter on every movie frame
+-hflip                Activate horizontal flip on every movie frame
+-edge                 Activate the edge filter on every movie frame
+-crop <start-end>     Crop the movie frames from <start> to <end>
+-fast <factor>        Fast forward the movie by <factor>
+-reverse              Reverse the frame order of the input movie
+-watermark <file>     Add a watermark from <file> to every movie frame
+-spotlight            Spotlight the fade in and fade out
+-zoom                 Zoom in and out the input movie
+-h                    Display this usage information
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ ./MovieLab -h[21Gmake[Kexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Gfast 3 -reverse[K a[K[A[89G[82Gcrop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[74Gcrop 10-40[K[74Gfast 3[K[32G[P[79G -crop 10-4 0[A[21Gvalgrind --leak-check=full./ MovieLab -i mouse.yuv -o out.yuv -f 146[K 0-s 480x270[A[47G[2P[87G -s-[2P[9G[A[47G./MovieLab -i mouse.yuv -o out.yuv -f 146 - [1@s[10G[A[21G[26P[64Gs 480x270 -zoom[89G s[K[A[79G[21G[9@valgrind [82G[K[21G[9P[73G -zoom[21G[9@valgrind [82G[K[21G[9P[59G50 -s 480x270 -spotlight[74Greverse[K[21Gscript[K[21G./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -reverse[74Gspotlight[21G[9@valgrind [68G146 -s 480x270[K[21G[9P[59G50 -s 480x270 -spotlight[74Greverse[K[21Gscript[K[21G./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -reverse[74Gspotlight[21G[9@valgrind [68G146 -s 480x270[K[21G[9P[73G -zoom[64G[21G[26@valgrind --leak-check=full[89G- s 480x270[A[47G MovieLab -i mouse.yuv -o out.yuv -f 146 -ss[P[9G[A[47G[2@./[89G[K  [2@-s[11G[A[21G./MovieLab i mouse.yuv -o out.yuv -f 50 -s 480x270 -fast 3 -crop 10-4-0[K[A[32G[1@-[80G[K[89G 0[K[A[80G[74Gcrop 10-40[74Gaging -hflip[74Gedge[Kfast 3 -crop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip
+The movie mouse.yuv has been loaded successfully!
+Operation Aging operation is done!
+Operation HFlip is done!
+The movie file out.yuv has been written successfully!
+50 frames are written to the file out.yuv in total.
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ ./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -aging -hflip[33Gh[K[21Gmake[Kexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[21G[27@valgrind --leak-check=full [86G146[K  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Gfast 3 -reverse[K a[K[A[89G[82Gcrop 10- 40[A[74Gedge[K[89G 4[K[A[78Gcrop 10-40[74Gedge[K
+The movie mouse.yuv has been loaded successfully!
+Operation Edge is done!
+The movie file out.yuv has been written successfully!
+50 frames are written to the file out.yuv in total.
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ ./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -edgeaging -hflip[33Gh[K[21Gmake[Kexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Gfast 3 -reverse[K a[K[A[89G[82Gcrop 10- 40
+The movie mouse.yuv has been loaded successfully!
+Operation Crop is done!
+Fast operation is done!
+The movie file out.yuv has been written successfully!
+11 frames are written to the file out.yuv in total.
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ ./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -fast 3 -crop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[33Gh[Ki mouse.yuv -o out.yuv -f 50 -s 480x270 -aging -hflip[74Gedge[Kaging -hflip[33Gh[K[21Gmake[Kexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Gfast 3 -reverse[K a[K[A[89G[74Gcrop 10-40[K[74Gfast 3[K[32G[P[79G -crop 10-4 0[A[21Gvalgrind --leak-check=full./ MovieLab -i mouse.yuv -o out.yuv -f 146[K 0-s 480x270[A[47G[2P[87G -s-[2P[9G[A[47G./MovieLab -i mouse.yuv -o out.yuv -f 146 - [1@s[10G[A[21G[26P[64Gs 480x270 -zoom[89G s[K[A[79G[21G[9@valgrind [82G[K[21G[9P[59G50 -s 480x270 -spotlight[74Greverse[K[21Gscript[K[21G./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -reverse
+The movie mouse.yuv has been loaded successfully!
+Operation Reverse is done!
+The movie file out.yuv has been written successfully!
+50 frames are written to the file out.yuv in total.
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ ./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -reverse[74Gfast 3 -crop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[33Gh[K[21Gmake[Kexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Gfast 3 -reverse[K a[K[A[89G[74Gwatermark waterm ark.ppm
+The movie mouse.yuv has been loaded successfully!
+Operation Watermark is done!
+The movie file out.yuv has been written successfully!
+50 frames are written to the file out.yuv in total.
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ ./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -watermark waterm ark.ppm[A[74Greverse[K[89G a[K[A[81G[74Gfast 3 -crop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[33Gh[K[21Gmake[Kexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -fast 3 -reverse[59G80 -s 480x270 -spotlight[K
+The movie mouse.yuv has been loaded successfully!
+Operation Spotlight is done!
+The movie file out.yuv has been written successfully!
+80 frames are written to the file out.yuv in total.
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ ./MovieLab -i mouse.yuv -o out.yuv -f 80 -s 480x270 -spotlight[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Greverse[K[89G a[K[A[81G[74Gfast 3 -crop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[33Gh[K[21Gmake[Kexitvalgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270
+==119734== Memcheck, a memory error detector
+==119734== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==119734== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==119734== Command: ./MovieLab -i mouse.yuv -o out.yuv -f 146 -s 480x270
+==119734== 
+The movie mouse.yuv has been loaded successfully!
+The movie file out.yuv has been written successfully!
+146 frames are written to the file out.yuv in total.
+==119734== 
+==119734== HEAP SUMMARY:
+==119734==     in use at exit: 0 bytes in 0 blocks
+==119734==   total heap usage: 2,047 allocs, 2,047 frees, 170,397,784 bytes allocated
+==119734== 
+==119734== All heap blocks were freed -- no leaks are possible
+==119734== 
+==119734== For counts of detected and suppressed errors, rerun with: -v
+==119734== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 8 from 6)
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ valgrind --leak-check=full ./MovieLab -i mouse.yuv -o out.yuv -f 146  -s 480x270[A[21G[27P[59G80 -s 480x270 -spotlight[89G -[K[A[83G[59G50 -s 480x270 -watermark waterm ark.ppm[A[74Greverse[K[89G a[K[A[81G[74Gfast 3 -crop 10- 40[A[74Gedge[K[89G 4[K[A[78Gaging -hflip[33Gh[K[21Gmake[Kexit./MovieLab -i mouse.yuv -o out.yuv -f 50 -s 480x270 -fast 3 -reverse[74Gcrop 10-40[K[74Gfast 3[K[32G[P[79G -crop 10-4 0[A[21Gvalgrind --leak-check=full./ MovieLab -i mouse.yuv -o out.yuv -f 146[K 0-s 480x270[A[47G[2P[87G -s-[2P[9G[A[47G[2@./[89G[K  [2@-s[11G[A[21G./MovieLab i mouse.yuv -o out.yuv -f 50 -s 480x270 -fast 3 -crop 10-4-0[K[A[32G[1@-[80G[K[89G 0[K[A[80G[74Gcrop 10-40[74Gfast 3 -reverse[74Gcrop 10-40[K[K[K[K[K[K[K[K[K[K[K-zoom0[P[P[1@1[1@0[1@0
+The movie mouse.yuv has been loaded successfully!
+Operation Zoom is done!
+The movie file out.yuv has been written successfully!
+100 frames are written to the file out.yuv in total.
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ make clean
+rm -rf *.o
+rm -rf out.yuv
+rm -rf MovieLab
+]0;yukih1@bondi:hw5[yukih1@bondi hw5]$ exit
+exit
+
+Script done on Sun 03 Dec 2017 06:28:14 PM PST

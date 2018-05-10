@@ -1,0 +1,127 @@
+Script started on Mon 06 Nov 2017 10:14:00 PM PST
+]0;yukih1@zuma:hw3[yukih1@zuma hw3]$ make clear[Kn
+rm -rf *.o
+rm -rf PhotoLab PhotoLabTest libfilter.a
+rm -rf edge.ppm negative.ppm colorfileter.ppm shuffle.ppm vflip.ppm vmirror.ppm noise.ppm posterize.ppm border.ppm sharpen.ppm blur.ppm
+]0;yukih1@zuma:hw3[yukih1@zuma hw3]$ make
+gcc -Wall -ansi -c FileIO.c -o FileIO.o
+cc    -c -o Advanced.o Advanced.c
+gcc -Wall -ansi -c DIPs.c -o DIPs.o
+ar rc libfilter.a DIPs.o Advanced.o
+ranlib libfilter.a
+gcc -Wall -ansi -c PhotoLab.c -o PhotoLab.o
+gcc FileIO.o PhotoLab.o -lfilter -L. -o PhotoLab
+]0;yukih1@zuma:hw3[yukih1@zuma hw3]$ ./PhotoLab
+
+----------------------------
+ 1: Load a PPM image
+ 2: Save an image in PPM and JPEG format
+ 3: Change a color image to Black & White
+ 4: Make a negative of an image
+ 5: Color filter an image
+ 6: Sketch the edge of an image
+ 7: Shuffle an image
+ 8: Flip an image vertically
+ 9: Mirror an image vertically
+10: Add border to an image
+11: Add noise to an image
+12: Sharpen an image
+13: Posterize an image
+14: Motion Blur
+15: Test all functions
+16: Exit
+Please make your choice: 15
+HSSOE.ppm was read.
+bw.ppm was saved. 
+bw.jpg was stored.
+Black & White tested!
+
+HSSOE.ppm was read.
+negative.ppm was saved. 
+negative.jpg was stored.
+Negative tested!
+
+HSSOE.ppm was read.
+colorfilter.ppm was saved. 
+colorfilter.jpg was stored.
+Color Filter tested!
+
+HSSOE.ppm was read.
+edge.ppm was saved. 
+edge.jpg was stored.
+Edge Detection tested!
+
+HSSOE.ppm was read.
+vmirror.ppm was saved. 
+vmirror.jpg was stored.
+VMirror tested!
+
+HSSOE.ppm was read.
+vflip.ppm was saved. 
+vflip.jpg was stored.
+VFlip tested!
+
+HSSOE.ppm was read.
+shuffle.ppm was saved. 
+shuffle.jpg was stored.
+Shuffle tested!
+
+HSSOE.ppm was read.
+border.ppm was saved. 
+border.jpg was stored.
+Border tested!
+
+HSSOE.ppm was read.
+noise.ppm was saved. 
+noise.jpg was stored.
+Noise tested!
+
+HSSOE.ppm was read.
+Sharpen operation is done!
+sharpen.ppm was saved. 
+sharpen.jpg was stored.
+Sharpen	tested!
+
+HSSOE.ppm was read.
+posterize.ppm was saved. 
+posterize.jpg was stored.
+posterize tested!
+
+HSSOE.ppm was read.
+motion blur operation is done!blur.ppm was saved. 
+blur.jpg was stored.
+Blur tested!
+
+
+----------------------------
+ 1: Load a PPM image
+ 2: Save an image in PPM and JPEG format
+ 3: Change a color image to Black & White
+ 4: Make a negative of an image
+ 5: Color filter an image
+ 6: Sketch the edge of an image
+ 7: Shuffle an image
+ 8: Flip an image vertically
+ 9: Mirror an image vertically
+10: Add border to an image
+11: Add noise to an image
+12: Sharpen an image
+13: Posterize an image
+14: Motion Blur
+15: Test all functions
+16: Exit
+Please make your choice: 16
+You exit the program.
+]0;yukih1@zuma:hw3[yukih1@zuma hw3]$ make PhotoLabTest
+gcc -Wall -ansi -g  -c PhotoLab.c  -o PhotoLabTest.o -DDEBUG
+gcc FileIO.o PhotoLabTest.o -lfilter -L. -o PhotoLabTest
+]0;yukih1@zuma:hw3[yukih1@zuma hw3]$ touch Advanced.c
+]0;yukih1@zuma:hw3[yukih1@zuma hw3]$ make PhotoLab
+cc    -c -o Advanced.o Advanced.c
+ar rc libfilter.a DIPs.o Advanced.o
+ranlib libfilter.a
+gcc FileIO.o PhotoLab.o -lfilter -L. -o PhotoLab
+]0;yukih1@zuma:hw3[yukih1@zuma hw3]$ exit
+exit
+
+Script done on Mon 06 Nov 2017 10:15:01 PM PST
