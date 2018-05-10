@@ -8,13 +8,16 @@ Hw2 ->
  Hw3 -> 
  - Make an image Load, Save, Negative, COlorFilter, Edge, VMirror, BlackNWhite, Shuffle, AddBorder, VFlip,
    Sharpen, Posterize, MotionBlur.
- - All codes are in .c and .h file
+  - All codes are in makefile, .c and .h file
  - used Makefile to connect all codes
  
  Hw4 ->
   - Make an image Load, Save, Negative, COlorFilter, Edge, VMirror, BlackNWhite, Shuffle, AddBorder, VFlip,
    Sharpen, Posterize, MotionBlur, watermark, resize, crop, brightnessandconstract.
    -Use struct to implement
-   -ALL codes are in .c and .h
+  - All codes are in makefile, .c and .h file
    
  Hw5 ->
+  - Make those images to movies with Image processing
+  - Use double linked list to implement
+  - All codes are in makefile, .c and .h file
